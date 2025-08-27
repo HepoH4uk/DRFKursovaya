@@ -10,10 +10,10 @@ def send_habit():
     habits = Habit.objects.all()
     current_date = datetime.datetime.now()
     for habit in habits:
-        if habit.time >= current_date:
+        if habit.time <= current_date:
             tg_chat = habit.user.tg_chat_id
             message = f"""
 Вы должны выполнить: {habit.action}
 Место: {habit.place}
 Время: {habit.time} """
-            send_telegram_message(tg_chat, message)
+            send_telegram_message(message, tg_chat)
