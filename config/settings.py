@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'users',
     'habits',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -154,3 +156,5 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': timedelta(seconds=10),
     },
 }
+
+CORS_ALLOWED_ALL_ORIGINS = True
